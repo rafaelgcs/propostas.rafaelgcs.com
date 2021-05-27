@@ -21,6 +21,7 @@ import Slide from '@material-ui/core/Slide';
 import { getCountOfProposals, getProposalByClient } from "../../../repositories/proposal_repository";
 import { getCountOfClients } from "../../../repositories/client_repository";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 
 const useStyles = makeStyles((theme) => ({
