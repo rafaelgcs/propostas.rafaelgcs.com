@@ -6,30 +6,11 @@ import HomePage from "../modules/website/pages/home_page";
 import ProposalPage from "../modules/website/pages/proposal_page";
 
 const routes_list = [
+    // SITE
     {
         title: "Home Page",
         link: "/",
         component: HomePage
-    },
-    {
-        title: "Login",
-        link: "/login",
-        component: LoginPage
-    },
-    {
-        title: "Dashboard",
-        link: "/dashboard",
-        component: DashboardPage
-    },
-    {
-        title: "Billing",
-        link: "/billing",
-        component: BillingPage
-    },
-    {
-        title: "Profile",
-        link: "/profile",
-        component: ProfilePage
     },
     {
         title: "Proposal",
@@ -40,7 +21,29 @@ const routes_list = [
         title: "Proposal",
         link: "/proposal/:id",
         component: ProposalPage
-    }
+    },
+    // ADMIN
+    // {
+    //     title: "Login",
+    //     link: "/login",
+    //     component: LoginPage
+    // },
+    // {
+    //     title: "Dashboard",
+    //     link: "/dashboard",
+    //     component: DashboardPage
+    // },
+    // {
+    //     title: "Billing",
+    //     link: "/billing",
+    //     component: BillingPage
+    // },
+    // {
+    //     title: "Profile",
+    //     link: "/profile",
+    //     component: ProfilePage
+    // },
+
 ];
 
 export default routes_list;

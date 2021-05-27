@@ -12,6 +12,7 @@ import { useHistory, useParams } from 'react-router';
 import { getProposalById } from '../../../repositories/proposal_repository';
 import { CircularProgress } from '@material-ui/core';
 import TopNavigator from '../components/navigation/top_navigator';
+import { Helmet } from "react-helmet";
 
 const ProposalPage = () => {
     const { id } = useParams();
@@ -49,17 +50,16 @@ const ProposalPage = () => {
     const submitValidateCode = (ev) => {
         ev.preventDefault();
 
-        if(codeInput == proposal.code) {
+        if (codeInput == proposal.code) {
             setCodeInputError(false);
             setEnabled(true);
-        }else{
+        } else {
             setCodeInputError(true);
         }
     }
 
     return (
         <div class="blog-author bg-gray-100">
-            {/* <FixedNavbar /> */}
             <TopNavigator page={"Proposta"} title={proposal.title} />
             {
                 isLoading ?
@@ -79,10 +79,14 @@ const ProposalPage = () => {
                     :
                     enabled ?
                         <>
+                            <Helmet>
+                                <title>{`Proposta - ${proposal.title}`}</title>
+                                <meta name="description" content={proposal.description} />
+                            </Helmet>
                             <ProjectDescriptionSection project={proposal} tabTo={"tab_sections"} />
                             {
                                 proposal.items.length > 0 &&
-                                <div id="tab_sections" className="container" style={{minHeight: '70vh'}}>
+                                <div id="tab_sections" className="container" style={{ minHeight: '70vh' }}>
                                     <ProjectDetailTabsSection items={proposal.items} />
                                 </div>
 
@@ -90,7 +94,11 @@ const ProposalPage = () => {
                         </>
                         :
                         <form onSubmit={submitValidateCode}>
-                            <Dialog open={!enabled && !isLoading} onClose={handleCloseDialog} aria-labelledby="form-dialog-title" style={{borderRadius: 40}}>
+                            <Helmet>
+                                <title>{`Proposta - ${proposal.title}`}</title>
+                                <meta name="description" content={proposal.description} />
+                            </Helmet>
+                            <Dialog open={!enabled && !isLoading} onClose={handleCloseDialog} aria-labelledby="form-dialog-title" style={{ borderRadius: 40 }}>
                                 <DialogTitle id="form-dialog-title">Validação do código</DialogTitle>
                                 <DialogContent>
                                     <DialogContentText>
@@ -103,7 +111,7 @@ const ProposalPage = () => {
                                         label="Código da proposta"
                                         type="password"
                                         value={codeInput}
-                                        onChange={(ev)=>{setCodeInput(ev.target.value)}}
+                                        onChange={(ev) => { setCodeInput(ev.target.value) }}
                                         fullWidth
                                     />
                                 </DialogContent>
