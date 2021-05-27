@@ -21,6 +21,7 @@ import Slide from '@material-ui/core/Slide';
 import { getCountOfProposals, getProposalByClient } from "../../../repositories/proposal_repository";
 import { getCountOfClients } from "../../../repositories/client_repository";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -122,6 +123,10 @@ const HomePage = () => {
     }, [])
     return (
         <div className="about-us">
+            <Helmet>
+                <title>{"Propostas | Página Inicial"}</title>
+                <meta name="description" content={"Solução para desenvolvimento de propostas comerciais online e sem burocracia!"} />
+            </Helmet>
             <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
                 <div class="container">
                     <a class="navbar-brand  text-white " href="/" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
