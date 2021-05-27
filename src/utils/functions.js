@@ -19,5 +19,21 @@ function debounce(func, wait, immediate) {
     };
 };
 
+const addDaysInDate = function (date, days) {
+    date.setDate(date.getDate() + days);
+    return date;
+}
 
-export { debounce }
+
+const getFormatedDate = (date) => {
+    let days = date.getUTCDate();
+    let month = date.getUTCMonth() + 1;
+    let year = date.getUTCFullYear();
+
+    let str = `${days}/${month < 10 ? `0${month}` : month}/${year}`;
+
+    return str;
+}
+
+
+export { debounce, addDaysInDate, getFormatedDate }

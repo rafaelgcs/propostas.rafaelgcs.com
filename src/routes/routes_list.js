@@ -3,6 +3,7 @@ import DashboardPage from "../modules/admin/pages/dashboard_page";
 import LoginPage from "../modules/admin/pages/login_page";
 import ProfilePage from "../modules/admin/pages/profile_page";
 import HomePage from "../modules/website/pages/home_page";
+import ProposalPage from "../modules/website/pages/proposal_page";
 
 const routes_list = [
     {
@@ -29,6 +30,16 @@ const routes_list = [
         title: "Profile",
         link: "/profile",
         component: ProfilePage
+    },
+    {
+        title: "Proposal",
+        link: "/proposal",
+        component: ProposalPage
+    },
+    {
+        title: "Proposal",
+        link: "/proposal/:id",
+        component: ProposalPage
     }
 ];
 

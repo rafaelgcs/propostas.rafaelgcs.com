@@ -47,6 +47,8 @@ import downArrowDefault from "../assets/img/down-arrow.svg";
 import downArrowWhite from "../assets/img/down-arrow-white.svg";
 import downArrowDark from "../assets/img/down-arrow-dark.svg";
 import officeDark from '../assets/img/office-dark.jpg';
+import meeting1 from '../assets/img/meeting.jpg';
+import meeting2 from '../assets/img/meeting_2.jpg';
 
 const logos = {
     navbar: logoNav,
@@ -115,7 +117,9 @@ const defaultImages = {
     },
     office: {
         dark: officeDark
-    }
+    },
+    meeting1,
+    meeting2
 }
 
 export { logos, curved, illustrations, shapes, smallLogos, people, defaultImages };
