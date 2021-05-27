@@ -71,8 +71,9 @@ const ProjectDetailTabsSection = (props) => {
           onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
-          variant="fullWidth"
-          aria-label="full width tabs example"
+          variant="scrollable"
+          scrollButtons="on"
+          aria-label="scrollable force tabs"
         >
           {
             items.map((item, index) => {
