@@ -1,26 +1,19 @@
 import React from "react";
-import { createBrowserHistory } from "history";
-import { Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router";
+import { BrowserRouter } from "react-router-dom";
+import routes_list from "./routes_list";
 
-import "assets/scss/material-kit-react.scss?v=1.9.0";
+const Routes = () => {
 
-// pages for this product
-import Components from "views/Components/Components";
-import LandingPage from "views/LandingPage/LandingPage";
-import ProfilePage from "views/ProfilePage/ProfilePage";
-import LoginPage from "views/LoginPage/LoginPage";
-import HomePage from "modules/landing_page/LandingPage";
+    return (
+        <BrowserRouter>
+            <Switch>
+                {routes_list.map((route)=> {
+                    return <Route key={route.title} exact path={route.link} component={route.component} />
+                })}
+            </Switch>
+        </BrowserRouter>
+    )
+};
 
-var hist = createBrowserHistory();
-
-const routes = (
-    <Switch>
-        <Route path="/doc/landing-page" component={LandingPage} />
-        <Route path="/doc/profile-page" component={ProfilePage} />
-        <Route path="/doc/login-page" component={LoginPage} />
-        <Route path="/doc/components" component={Components} />
-        <Route path="/" component={HomePage} />
-    </Switch>
-)
-
-export default routes;
+export default Routes;
