@@ -74,6 +74,7 @@ const ProjectDetailTabsSection = (props) => {
           variant="scrollable"
           scrollButtons="on"
           aria-label="scrollable force tabs"
+          centered
         >
           {
             items.map((item, index) => {

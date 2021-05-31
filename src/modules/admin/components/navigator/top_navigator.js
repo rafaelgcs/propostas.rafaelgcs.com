@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { defaultImages, smallLogos } from "../../../../core/app_images";
 import { debounce } from "../../../../utils/functions";
 
 const TopNavigator = (props) => {
-    const { title, showDrawer, showNavbar, navbarOpen } = props;
-    const fixedClassesWithZIndex = 'position-sticky blur shadow-blur mt-4 left-auto top-1 z-index-sticky';
-    const fixedClassesWithOutZIndex = 'position-sticky blur shadow-blur mt-4 left-auto top-1';
+    const { title, showDrawer, showNavbar, navbarOpen, breadcrumps } = props;
+    const fixedClassesWithZIndex = 'position-sticky blur shadow-blur left-auto top-1 z-index-sticky';
+    const fixedClassesWithOutZIndex = 'position-sticky blur shadow-blur left-auto top-1';
     const toggleClasses = 'shadow-none';
     const [fixed, setFixed] = useState(true);
     const [search, setSearch] = useState("");
@@ -84,7 +85,11 @@ const TopNavigator = (props) => {
             <div className="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                        <li className="breadcrumb-item text-sm"><a className="opacity-5 text-dark" href="#">Início</a></li>
+                        {
+                            breadcrumps.map((b) => {
+                                return <li className="breadcrumb-item text-sm"><Link className="opacity-5 text-dark" to={b.link}>{b.title}</Link></li>
+                            })
+                        }
                         <li className="breadcrumb-item text-sm text-dark active" aria-current="page">{title}</li>
                     </ol>
                     <h6 className="font-weight-bolder mb-0">{title}</h6>

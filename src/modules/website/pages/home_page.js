@@ -129,7 +129,7 @@ const HomePage = () => {
             </Helmet>
             <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
                 <div class="container">
-                    <a class="navbar-brand  text-white " href="/" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
+                    <a class="navbar-brand  text-white " href="/" rel="tooltip" title="Rafael GCS - Propostas" data-placement="bottom">
                         {"Rafael GCS - Propostas"}
                     </a>
                     <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -149,7 +149,7 @@ const HomePage = () => {
                                 </a>
                             </li>
                             <li class="nav-item my-auto ms-3 ms-lg-0">
-                                <a href="https://rafaelgcs.com/#/contato" class="btn btn-sm  bg-white  btn-round mb-0 me-1 mt-2 mt-md-0">Contato</a>
+                                <Link to="/admin" class="btn btn-sm  bg-white  btn-round mb-0 me-1 mt-2 mt-md-0">Gerenciador</Link>
                             </li>
                         </ul>
                     </div>

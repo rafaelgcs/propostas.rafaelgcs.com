@@ -1,14 +1,14 @@
 // CONSTS TO USE IN CODE
-const TOKEN_KEY = process.env.REACT_APP_TOKEN_KEY;
-const USER_KEY = process.env.REACT_APP_USER_KEY;
-const EXPIRES_IN_KEY = process.env.REACT_APP_EXPIRES_IN_KEY;
-const LAST_LOGIN_KEY = process.env.REACT_APP_LAST_LOGIN_KEY;
-const REMEMBER_USER_KEY = process.env.REACT_APP_REMEMBER_USER_KEY;
+const TOKEN_KEY = btoa(process.env.REACT_APP_TOKEN_KEY);
+const USER_KEY = btoa(process.env.REACT_APP_USER_KEY);
+const EXPIRES_IN_KEY = btoa(process.env.REACT_APP_EXPIRES_IN_KEY);
+const LAST_LOGIN_KEY = btoa(process.env.REACT_APP_LAST_LOGIN_KEY);
+const REMEMBER_USER_KEY = btoa(process.env.REACT_APP_REMEMBER_USER_KEY);
 
 // COMMANDS TO EXPORT
 
 const getToken = () => {
-  let token = localStorage.getItem(TOKEN_KEY);
+  let token = atob(localStorage.getItem(TOKEN_KEY));
 
   return token;
 };
@@ -16,22 +16,22 @@ const getToken = () => {
 const getUser = () => {
   let userStr = localStorage.getItem(USER_KEY);
 
-  return JSON.parse(userStr);
+  return JSON.parse(atob(userStr));
 };
 
 const getRemember = () => {
-  let remember = localStorage.getItem(REMEMBER_USER_KEY);
+  let remember = atob(localStorage.getItem(REMEMBER_USER_KEY));
   if (remember === "true") {
     return true;
   }
   return false;
 };
 
-const login = async (user, token, expires_in, remember) => {
+const localLogin = async (user, token, expires_in, remember) => {
   try {
-    await localStorage.setItem(TOKEN_KEY, token);
-    await localStorage.setItem(USER_KEY, JSON.stringify(user));
-    await localStorage.setItem(REMEMBER_USER_KEY, remember);
+    await localStorage.setItem(TOKEN_KEY, btoa(token));
+    await localStorage.setItem(USER_KEY, btoa(JSON.stringify(user)));
+    await localStorage.setItem(REMEMBER_USER_KEY, btoa(remember));
     await localStorage.setItem(EXPIRES_IN_KEY, expires_in.toString());
     await localStorage.setItem(LAST_LOGIN_KEY, new Date().toString());
     return true;
@@ -46,8 +46,8 @@ const logout = () => {
 };
 
 const isAuthenticated = () => {
-  let token = localStorage.getItem(TOKEN_KEY);
-  let user = localStorage.getItem(USER_KEY);
+  let token = atob(localStorage.getItem(TOKEN_KEY));
+  let user = atob(localStorage.getItem(USER_KEY));
   let last_login = localStorage.getItem(LAST_LOGIN_KEY);
   let expires_in = localStorage.getItem(EXPIRES_IN_KEY);
 
@@ -64,4 +64,4 @@ const isAuthenticated = () => {
   return false;
 };
 
-export { getToken, getUser, login, logout, isAuthenticated, getRemember };
+export { getToken, getUser, localLogin, logout, isAuthenticated, getRemember };
