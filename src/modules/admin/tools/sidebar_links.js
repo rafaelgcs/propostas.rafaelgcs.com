@@ -17,6 +17,12 @@ const sidebar_links = [
         IconSelected: <i className={`fas fa-people-arrows text-lg opacity-10`} style={{ marginTop: -4 }} aria-hidden="true"></i>,
         Icon: <i className={`fas fa-people-arrows text-lg opacity-10`} style={{ marginTop: -4, color: iconsUnselectedColor }} aria-hidden="true"></i>
     },
+    {
+        title: "Clientes",
+        link: "/admin/clients",
+        IconSelected: <i className={`fas fa-user text-lg opacity-10`} style={{ marginTop: -4 }} aria-hidden="true"></i>,
+        Icon: <i className={`fas fa-user text-lg opacity-10`} style={{ marginTop: -4, color: iconsUnselectedColor }} aria-hidden="true"></i>
+    },
 
 ];
 

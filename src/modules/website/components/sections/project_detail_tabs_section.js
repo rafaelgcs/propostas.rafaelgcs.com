@@ -92,10 +92,11 @@ const ProjectDetailTabsSection = (props) => {
       >
         {
           items.map((item, index) => {
+            console.log(item)
             return (
               <TabPanel key={`PANEL__${index}`} value={value} index={index} dir={theme.direction}>
                 <div className="text-lg mb-0">
-                  <EditorJS readOnly holder={`tab_index${index}`} data={JSON.parse(item.description)} onChange={(val) => console.log(val)} />
+                  <EditorJS readOnly holder={`tab_index${index}`} data={JSON.parse(JSON.parse(item.description))} onChange={(val) => console.log(val)} />
                 </div>
               </TabPanel>
             )

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import EditorJs from "react-editor-js";
 import { EDITOR_JS_TOOLS } from "../tools/editor_js_tools";
 import "./editor_js.css";
@@ -18,6 +18,7 @@ const EditorJS = (props) => {
         ],
         version: "2.12.4"
     }
+    useEffect(() => { console.log(data) }, [])
     return (
         <EditorJs
             tools={EDITOR_JS_TOOLS}

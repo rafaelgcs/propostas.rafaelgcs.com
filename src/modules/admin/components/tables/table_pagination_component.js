@@ -7,8 +7,9 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
 const TablePaginationComponent = (props) => {
     const { attributes, onChangePerPage } = props;
-    const [perPage, setPerPage] = useState();
+    const [perPage, setPerPage] = useState(5);
     useEffect(() => {
+        console.log("dentro de tablepagination", attributes)
         setPerPage(attributes.per_page)
     }, [attributes])
     return (

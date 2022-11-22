@@ -29,11 +29,24 @@ const getLoggedUserProposalsPagination = async () => {
     return response.data;
 }
 
+const createNewProposal = async (data) => {
+    let response = await apiAuth.post('proposal', data);
+
+    return response.data;
+}
+
+const createNewProposalItem = async (data) => {
+    let response = await apiAuth.post('proposal/item', data);
+
+    return response.data;
+}
 
 export {
     getProposalById,
     getProposalByClient,
     getCountOfProposals,
     getLoggedUserRecentProposals,
-    getLoggedUserProposalsPagination
+    getLoggedUserProposalsPagination,
+    createNewProposal,
+    createNewProposalItem
 }

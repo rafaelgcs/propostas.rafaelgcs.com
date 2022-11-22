@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { getToken } from "./auth";
 
-const url = process.env.REACT_APP_URL_API;
+const url = process.env.REACT_APP_URL_API_LOCAL;
 
 const api = axios.create({
     baseURL: url,
